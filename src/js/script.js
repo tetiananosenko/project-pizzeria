@@ -266,10 +266,6 @@
 
       thisCart.dom.toggleTrigger.addEventListener('click', function (event) {
         event.preventDefault();
-        const activeCart = document.querySelector(`article.${classNames.cart.wrapperActive}`);
-        if (activeCart && activeCart !== thisCart.dom.wrapper) {
-          activeCart.classList.remove(classNames.cart.wrapperActive);
-        }
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
 
@@ -278,7 +274,7 @@
       const thisProduct = this;
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
       thisProduct.amountWidgetElem.addEventListener('updated', function () {
-        thisProduct.processOrder()
+        thisProduct.processOrder();
       });
       console.log('thisProduct.amountWidget', thisProduct.amountWidgetElem);
     }
