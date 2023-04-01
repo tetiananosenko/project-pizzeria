@@ -83,6 +83,7 @@
     constructor(id, data) {
       const thisProduct = this;
       thisProduct.id = id;
+      console.log('id', thisProduct.id);
       thisProduct.data = data;
       thisProduct.renderInMenu();
       thisProduct.getElements();
@@ -140,6 +141,7 @@
       thisProduct.dom.cartButton.addEventListener('click', function (event) {
         event.preventDefault();
         thisProduct.processOrder();
+        thisProduct.addToCart();
       });
     }
     processOrder() {
@@ -178,7 +180,10 @@
           }
         }
       }
+      thisProduct.priceSingle = price;
+      console.log('thisProduct.priceSingle', thisProduct.priceSingle);
       price *= thisProduct.amountWidget.value;
+      console.log('price', price);
       thisProduct.dom.priceElem.innerHTML = price;
     }
     initAmountWidget() {
@@ -189,6 +194,54 @@
       });
       // console.log('thisProduct.amountWidget', thisProduct.dom.amountWidgetElem);
     }
+    addToCart() {
+      const thisProduct = this;
+
+      app.cart.add(thisProduct.prepareCartProduct());
+
+
+    }
+    prepareCartProduct() {
+      const thisProduct = this;
+
+      const productSummary = {
+        id: thisProduct.id,
+        name: thisProduct.data.name,
+        amount: thisProduct.amountWidget.value,
+        priceSingle: thisProduct.priceSingle,
+        price: thisProduct.priceSingle * thisProduct.amountWidget.value,
+        params: thisProduct.prepareCartProductParams()
+
+      };
+      console.log('id2', productSummary);
+      return productSummary;
+    }
+    prepareCartProductParams() {
+      const thisProduct = this;
+      const formData = utils.serializeFormToObject(thisProduct.dom.form);
+      const params = {};
+
+      for (let paramId in thisProduct.data.params) {
+        const param = thisProduct.data.params[paramId];
+        // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
+        params[paramId] = {
+          label: param.label,
+          options: {}
+        };
+        for (let optionId in param.options) {
+          // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
+          const option = param.options[optionId];
+
+          if (formData[paramId] && formData[paramId].includes(optionId)) {
+            params[paramId].options[optionId] = option.label;
+          }
+        }
+      }
+
+      return params;
+
+    }
+
   }
 
   class AmountWidget {
@@ -255,9 +308,11 @@
     }
     getElements(element) {
       const thisCart = this;
+      console.log('ggg',document.querySelector(select.templateOf.cartProduct))
       thisCart.dom = {
         wrapper: element,
         toggleTrigger: element.querySelector(select.cart.toggleTrigger),
+        productList: element.querySelector(select.cart.productList)
 
       };
     }
@@ -278,15 +333,24 @@
       });
       console.log('thisProduct.amountWidget', thisProduct.amountWidgetElem);
     }
+    add(menuProduct) {
+      const thisCart = this;
+
+      const generatedHTML = templates.cartProduct(menuProduct);
+      thisCart.element = utils.createDOMFromHTML(generatedHTML);
+      console.log('thisCart.element', thisCart.element);
+      thisCart.dom.productList.appendChild(thisCart.element);
+    }
   }
 
 
   const app = {
     initMenu: function () {
       const thisApp = this;
-      // console.log(thisApp.data.products);
+      console.log('thisApp.data.products', thisApp.data.products);
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
+        // console.log('thisApp.data.products[productData]', thisApp.data.products[productData].name)
       }
     },
     initData: function () {
