@@ -1,14 +1,14 @@
 import { settings, select, classNames } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
-import Booking from './components/Booking.js'
+import Booking from './components/Booking.js';
 
 const app = {
-initBooking: function() {
-    const thisApp = this; 
+  initBooking: function () {
+    const thisApp = this;
     thisApp.booking = document.querySelector(select.containerOf.booking);
     new Booking(thisApp.booking);
-},
+  },
   initPages: function () {
     const thisApp = this;
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
@@ -33,7 +33,7 @@ initBooking: function() {
         thisApp.activatePage(id);
 
         window.location.hash = '#/' + id;
-      })
+      });
     }
   },
 
