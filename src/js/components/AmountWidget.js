@@ -16,15 +16,6 @@ class AmountWidget extends BaseWidget {
     thisWidget.dom.linkDecrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkDecrease);
     thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
   }
-  // setValue(value) {
-  //   const thisWidget = this;
-  //   const newValue = thisWidget.parseValue(value);
-  //   if (thisWidget.value !== newValue && thisWidget.isValid(newValue)) {
-  //     thisWidget.value = newValue;
-  //     thisWidget.announce();
-  //   }
-  //   thisWidget.renderValue();
-  // }
   isValid(value) {
     return !isNaN(value)
       && settings.amountWidget.defaultMin <= value
@@ -51,14 +42,6 @@ class AmountWidget extends BaseWidget {
       thisWidget.setValue(thisWidget.value + 1);
     });
   }
-  // announce() {
-  //   const thisWidget = this;
-
-  //   const event = new CustomEvent('updated', {
-  //     bubbles: true
-  //   });
-  //   thisWidget.dom.wrapper.dispatchEvent(event);
-  // }
 }
 
 export default AmountWidget;
