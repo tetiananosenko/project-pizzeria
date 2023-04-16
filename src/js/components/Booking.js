@@ -104,6 +104,7 @@ class Booking {
       allAvailable = true;
     }
     for (let table of thisBooking.dom.tables) {
+      table.classList.remove('selected');
       let tableId = table.getAttribute(settings.booking.tableIdAttribute);
       if (!isNaN(tableId)) {
         tableId = parseInt(tableId);
@@ -113,6 +114,7 @@ class Booking {
       } else {
         table.classList.remove(classNames.booking.tableBooked);
       }
+
     }
   }
   render(element) {

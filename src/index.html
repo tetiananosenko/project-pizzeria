@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
+
+  <script src="https://kit.fontawesome.com/1c24cb0d27.js" crossorigin="anonymous"></script>
+
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext"
     rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
@@ -68,7 +71,129 @@
   <div id="pages">
     <section id="home">
       <div id="home-list" class="home-list container">
-      
+        <div class="rectangles-small">
+          <a href="#order" class="book-wrapper">
+            <img src="./img/photo tab/pizza-10.jpg" alt="" class="img-order-book">
+            <div class="text-order active">
+              <p class="order-booking-text">Order online</p>
+              <p class="book-text-hidden">Delicious food for you!</p>
+            </div>
+          </a>
+          <a href="#booking" class="book-wrapper">
+            <img src="./img/pizza-1.jpg" alt="" class="img-order-book">
+            <div class="text-booking active">
+              <p class="order-booking-text">Book a table</p>
+              <p class="book-text-hidden">Delicious food for you!</p>
+            </div>
+          </a>
+        </div>
+        <div class="rectangle">
+          <div class="div-text">
+            <p class="text-open">Opening hours:</p>
+            <p class="text-open">tue-sun,12pm-12am</p>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="slides">
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+
+            <div class="slide first">
+              <img src="./img/pizza-1.jpg" alt="">
+              <div class="info">
+                <p class="title-carrousel">Amazing Service</p>
+                <p class="text-carrousel">Optimos nos administros habemus. Bonus architriclinus non solum ad
+                  visitatores blande ridere potest, mandata diligenter
+                  scribere et lancem inter mensas decurrere aequaliter.</p>
+                <p class="author-carrousel">- Kaslik Amanow</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="./img/pizza-2.jpg" alt="">
+              <div class="info">
+                <p class="title-carrousel">Nice Prices</p>
+                <p class="text-carrousel">Promotiones permanentes et infringo habemus. Poteris etiam in infimis pretiis
+                  Neapolitanam suavissimam obtinere.</p>
+                <p class="author-carrousel">- Kaslik Amanow</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="./img/pizza-3.jpg" alt="">
+              <div class="info">
+                <p class="title-carrousel">Delicious Food</p>
+                <p class="text-carrousel">Et tamen in ipso fine spondemus ut gemmae saporem tuum plene gaudeant auctoris
+                  nostri potenti, authentica pasta Italica
+                  et placenta suavissima.</p>
+                <p class="author-carrousel">- Kaslik Amanow</p>
+              </div>
+            </div>
+            <div class="navigation-auto">
+              <div class="auto-btn1"></div>
+              <div class="auto-btn2"></div>
+              <div class="auto-btn3"></div>
+            </div>
+          </div>
+
+          <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+          </div>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <div class="gallery-item-bg"></div>
+            <img src="./img/photo tab/pizza-4.jpg" alt="" class="grid-img">
+            <div class="grid-title">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-circle-nodes"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-bg"></div>
+            <img src="./img/photo tab/pizza-5.jpg" alt="" class="grid-img">
+            <div class="grid-title">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-circle-nodes"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-bg"></div>
+            <img src="./img/photo tab/pizza-6.jpg" alt="" class="grid-img">
+            <div class="grid-title">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-circle-nodes"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-bg"></div>
+            <img src="./img/photo tab/pizza-4.jpg" alt="" class="grid-img">
+            <div class="grid-title">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-circle-nodes"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-bg"></div>
+            <img src="./img/photo tab/pizza-8.jpg" alt="" class="grid-img">
+            <div class="grid-title">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-circle-nodes"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-bg"></div>
+            <img src="./img/photo tab/pizza-9.jpg" alt="" class="grid-img">
+            <div class="grid-title">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-circle-nodes"></i>
+            </div>
+          </div>
+        </div>
+        <div class="link-instagram">
+          <a href="#">View more on Instagram</a>
+        </div>
       </div>
     </section>
     <section id="order">
@@ -80,7 +205,7 @@
   </div>
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>
-      <div class="widget-amount"> <!-- widget-amount -->
+      <div class="widget-amount"> 
         <a class="btn-quantity btn-quantity--lt" href="#less"><i class="fas fa-minus"></i></a>
         <input class="amount" type="text" value="{{ amount }}">
         <a class="btn-quantity btn-quantity--lt" href="#more"><i class="fas fa-plus"></i></a>
