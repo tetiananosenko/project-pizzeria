@@ -29,9 +29,10 @@
 }
 
 .book-text-hidden {
-  display: none;
+  opacity: 0;
   color: $color-light;
   font-size: 14px;
+  transition: all 1s;
 }
 
 .text-order {
@@ -49,14 +50,21 @@
 .book-wrapper {
   position: relative;
 
-  &:hover .active {
-    transform: translate(0, -20px);
+  .active {
+    transition: all 1s;
     flex-direction: column;
-    transition: 1s;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &:hover .order-booking-text {
+    transform: translate(0, -20px);
   }
 
   &:hover .active .book-text-hidden {
-    display: block;
+    opacity: 1;
   }
 }
 
@@ -78,6 +86,7 @@
   text-decoration: none;
   text-transform: uppercase;
   font-family: $font-header;
+  transition: all 1s;
 }
 
 
@@ -103,7 +112,7 @@
 
 
 .slide {
-  transition: 3s;
+  transition: 1s;
   width: 25%;
   position: relative;
 }
@@ -234,16 +243,17 @@
   color: $color-light;
   display: none;
 
-  &:hover {
-    color: $color-main;
-    cursor: pointer;
-  }
 }
 
 
 i {
   padding: 5px;
   cursor: pointer;
+
+  &:hover {
+    color: $color-main;
+    cursor: pointer;
+  }
 }
 
 .link-instagram {
