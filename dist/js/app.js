@@ -2,7 +2,7 @@ import { settings, select, classNames } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
-import Home from './components/Home.js'
+import Home from './components/Home.js';
 
 const app = {
   initBooking: function () {
@@ -38,7 +38,6 @@ const app = {
     app.activatePage(id);
     window.location.hash = '#/' + id;
   },
-
   activatePage: function (pageId) {
     const thisApp = this;
     for (let page of thisApp.pages) {
