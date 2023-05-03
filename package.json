@@ -2,7 +2,6 @@
     "name": "fer-07-project",
     "version": "1.0.0",
     "homepage": "https://tetiananosenko.github.io/project-pizzeria",
-    "private": true,
     "description": "",
     "main": "index.html",
     "scripts": {
