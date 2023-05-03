@@ -1,9 +1,13 @@
 {
     "name": "fer-07-project",
     "version": "1.0.0",
+    "homepage": "https://tetiananosenko.github.io/project-pizzeria",
+    "private": true,
     "description": "",
     "main": "index.html",
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "init-project": "npm install && npm-run-all init:*",
         "init:dirs": "mkdirp dist src/sass src/css src/vendor src/images src/js",
         "init:files": "touch README.md src/index.html src/sass/style.scss src/js/script.js",
@@ -34,6 +38,7 @@
         "browser-sync": "^2.26.3",
         "copyfiles": "^2.1.0",
         "eslint": "^5.14.1",
+        "gh-pages": "^5.0.0",
         "globstar": "^1.0.0",
         "html-validate": "^7.3.2",
         "mkdirp": "^0.5.1",
