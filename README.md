@@ -18,10 +18,10 @@ Functionality:
 |11|	You can book a table from the available ones by choosing the number of people, date and time
 ### Technologies
 Project is created with:
-*HTML
-*SCSS
-*JS
-*AJAX & API
+* HTML
+* SCSS
+* JS
+* AJAX & API
 #### Setup
 To run this project, install it locally using npm:
 ```
